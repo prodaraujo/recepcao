@@ -5,95 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentes</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
 
-        header {
-            background-color: #5888b7;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
 
-        h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
+/* Estilo base */
+body {
+    font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Fundo suave */
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* Estilo para o cabeçalho */
+header {
+    background-color: #2c3e50;
+    color: #f8f8f8 ; 
+    text-align: center;
+    padding: 30px 0; /* Mais espaçamento para um visual arejado */
+    font-family: 'Corinthia', serif; /* Fonte clássica */
+}
 
-        .container {
-            padding: 20px;
-        }
+/* Estilo do título principal */
+header h1 {
+    font-size: 2rem; /* Tamanho grande para destaque */
+    font-weight: bold; /* Negrito para destaque */
+    margin: 0;
+    letter-spacing: 1px; /* Espaçamento entre letras para elegância */
+}
 
-        .gift-item {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-        }
+/* Estilo do subtítulo */
+header h2 {
+    font-size: 1.2rem; /* Subtítulo menor que o título */
+    margin: 0;
+    color: #7f8c8d; /* Cor secundária para contraste */
+    font-style: italic; /* Para um toque elegante */
+}
 
-        .gift-item:last-child {
-            border-bottom: none;
-        }
 
-        .gift-image {
-            float: left;
-            margin-right: 10px;
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            border-radius: 50%;
-        }
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
 
-        @media only screen and (min-width: 600px) {
-            .container {
-                max-width: 600px;
-                margin: 0 auto;
-            }
-        }
+/* Link para ter o mesmo comportamento do Apple Store, mas sem underline */
+a {
+    text-decoration: none;
+    color: inherit; /* Herdar a cor do texto */
+    transition: color 0.2s; /* Suave ao passar o mouse */
+}
+
+a:hover {
+    color: #2980b9; /* Azul para hover */
+}
+
+.container {
+    padding: 20px;
+}
+
+/* Estilo para itens */
+.gift-item {
+    border-bottom: 1px solid #dcdcdc; /* Bordas suaves */
+    padding: 10px 0;
+    display: flex;
+    align-items: center; /* Alinhamento vertical */
+    transition: background-color 0.2s; /* Transição suave */
+}
+
+.gift-item:last-child {
+    border-bottom: none; /* Sem borda no último item */
+}
+
+.gift-item:hover {
+    background-color: #e7e7e7; /* Cor de hover */
+}
+
+/* Imagem arredondada como a Apple */
+.gift-image {
+    float: left;
+    margin-right: 15px;
+    width: 60px; /* Tamanho menor para uma aparência mais compacta */
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%; /* Imagem circular */
+}
+
+/* Melhor disposição em telas maiores */
+@media only screen and (min-width: 600px) {
+    .container {
+        max-width: 600px;
+        margin: 0 auto; /* Centralizar na tela */
+    }
+}
+
     </style>
 </head>
 <body>
     <header>
-        <h1>Presentes para Chá de Casa Nova (Paulo e Allana)</h1>
+        <h1>Presentes de Casamento<br>Paulo e Allana</h1>
     </header>
 
     <div class="container">
-        <div class="gift-item">
-            <a rel="noopener noreferrer" href="https://www.amazon.com.br/Travesseiro-Fronhas-Fibrasca-Revestimento-Poli%C3%A9ster/dp/B07CCCVTCM/ref=asc_df_B07CCCVTCM/?tag=googleshopp00-20&linkCode=df0&hvadid=379716044382&hvpos=&hvnetw=g&hvrand=3789503425549204192&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001541&hvtargid=pla-811971361436&psc=1&mcid=2d9eaef24107322a9e8210557127f935">
-                <img class="gift-image" src="https://m.media-amazon.com/images/I/81JDuUZSPFL._AC_SL1500_.jpg" alt="Presente 1">
-                <h2>Travesseiros</h2>
-                <p>Kit 2 peças Travesseiro</p>
-            </a>
-        </div>
 
+        <!-- Sofá (mais caro) -->
         <div class="gift-item">
-            <a rel="noopener noreferrer" href="https://www.amazon.com.br/Facas-Pe%C3%A7as-Plenus-Tramontina-Cutelaria/dp/B07K32CH6K">
-                <img class="gift-image" src="https://m.media-amazon.com/images/I/518Y9L-71uL._AC_SL1000_.jpg" alt="Presente 2">
-                <h2>Jogo de Facas</h2>
-                <p>Jogo Facas 6 Peças Plenus</p>
-            </a>
-        </div>
-
-        <div class="gift-item">
-            <a rel="noopener noreferrer" href="https://www.magazineluiza.com.br/smart-tv-samsung-43-crystal-uhd-4k-43cu8000-2023-design-airslim-painel-dynamic-crystal-color-tela/p/hakdfch0d1/et/tv4k/">
-                <img class="gift-image" src="https://m.media-amazon.com/images/I/71vk2qFDSPL._AC_SL1500_.jpg" alt="Presente 3">
-                <h2>TV</h2>
-                <p>Samsung Smart TV Crystal 43"</p>
-            </a>
-        </div>
-
-        <div class="gift-item">
-            <a rel="noopener noreferrer" href="https://www.magazineluiza.com.br/sofa-cama-retratil-e-reclinavel-210m-com-molas-carol-veludo-bege-adonai-estofados/p/ak519d4kk3/mo/msof/">
-                <img class="gift-image" src="https://a-static.mlcdn.com.br/1500x1500/sofa-cama-retratil-e-reclinavel-210m-com-molas-carol-veludo-bege-adonai-estofados/adonaiestofados/2343/cf00ecaaa50c95bef8d4ece769c4ff48.jpeg" alt="Presente 4">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.magazineluiza.com.br/sofa-cama-retratil-e-reclinavel-210m-com-molas-carol-veludo-bege-adonai-estofados/p/ak519d4kk3/mo/msof/">
+                <img class="gift-image" src="https://a-static.mlcdn.com.br/1500x1500/sofa-cama-retratil-e-reclinavel-210m-com-molas-carol-veludo-bege-adonai-estofados/adonaiestofados/2343/cf00ecaaa50c95bef8d4ece769c4ff48.jpeg" alt="Presente Sofá">
                 <h2>Sofá</h2>
                 <p>Sofá Cama Retrátil e Reclinável</p>
             </a>
         </div>
+    
+        <!-- TV -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.magazineluiza.com.br/smart-tv-samsung-43-crystal-uhd-4k-43cu8000-2023-design-airslim-painel-dynamic-crystal-color-tela/p/hakdfch0d1/et/tv4k/">
+                <img class="gift-image" src="https://m.media-amazon.com/images/I/71vk2qFDSPL._AC_SL1500_.jpg" alt="Presente TV">
+                <h2>TV</h2>
+                <p>Samsung Smart TV Crystal 43"</p>
+            </a>
+        </div>
+    
+        <!-- Forno -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.amazon.com.br/Forno-Item1/dp/example">
+                <img class="gift-image" src="https://m.media-amazon.com/images/Forno_Example.jpg" alt="Presente Forno">
+                <h2>Forno</h2>
+                <p>Modelo X - 60 Litros</p>
+            </a>
+        </div>
+    
+        <!-- Microondas -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.amazon.com.br/Microondas-Item2/dp/example">
+                <img class="gift-image" src="https://m.media-amazon.com/images/Microondas_Example.jpg" alt="Presente Microondas">
+                <h2>Microondas</h2>
+                <p>Microondas 20L</p>
+            </a>
+        </div>
+    
+        <!-- Air fryer -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.amazon.com.br/AirFryer-Item4/dp/example">
+                <img class="gift-image" src="https://m.media-amazon.com/images/AirFryer_Example.jpg" alt="Presente Air fryer">
+                <h2>Air fryer</h2>
+                <p>Fritadeira sem Óleo</p>
+            </a>
+        </div>
+    
+        <!-- Sanduicheira -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.amazon.com.br/Sanduicheira-Item3/dp/example">
+                <img class="gift-image" src="https://m.media-amazon.com/images/Sanduicheira_Example.jpg" alt="Presente Sanduicheira">
+                <h2>Sanduicheira</h2>
+                <p>Sanduicheira Elétrica</p>
+            </a>
+        </div>
+    
+        <!-- Assadeiras -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.amazon.com.br/Assadeiras-Item5/dp/example">
+                <img class="gift-image" src="https://m.media-amazon.com/images/Assadeiras_Example.jpg" alt="Presente Assadeiras">
+                <h2>Assadeiras</h2>
+                <p>Conjunto de Assadeiras</p>
+            </a>
+        </div>
+    
+        <!-- Formas de Bolo -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.amazon.com.br/Formas-de-Bolo-Item6/dp/example">
+                <img class="gift-image" src="https://m.media-amazon.com/images/Formas-de-Bolo_Example.jpg" alt="Presente Formas de Bolo">
+                <h2>Formas de Bolo</h2>
+                <p>Kit com Formas de Bolo</p>
+            </a>
+        </div>
+    
+        <!-- Utensílios de Silicone -->
+        <div class="gift-item">
+            <a rel="noopener noreferrer" target="_blank" href="https://www.amazon.com.br/Utensilios-de-Silicone-Item7/dp/example">
+                <img class="gift-image" src="https://m.media-amazon.com/images/Utensílios-de-Silicone_Example.jpg" alt="Presente Utensílios de Silicone">
+                <h2>Utensílios de Silicone</h2>
+                <p>Conjunto de Utensílios</p>
+            </a>
+        </div>
+    </div>    
+
 </body>
 </html>
