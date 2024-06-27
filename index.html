@@ -1,441 +1,121 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentes de Casamento</title>
+    <title>Instagram</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/newlyweds.png" type="image/x-icon">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
-
-        /* Estilo base */
         body {
-            font-family: 'San Francisco', 'Helvetica Neue', Arial, sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            /* Fundo suave */
         }
 
-        /* Estilo para o cabeçalho */
-        header {
-            background-color: #2c3e50;
-            /* Azul escuro */
-            color: #f8f8f8;
-            /* Cor clara para contraste */
-            text-align: center;
-            padding: 30px 0;
-            /* Mais espaçamento para um visual arejado */
-            font-family: 'Corinthia', serif;
-            /* Fonte clássica */
+        .header {
+            background-color: #1f1f1f;
+            border-bottom: 1px solid #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Estilo do título principal */
-        header h1 {
-            font-size: 2rem;
-            /* Tamanho grande para destaque */
-            font-weight: bold;
-            /* Negrito para destaque */
-            margin: 0;
-            letter-spacing: 1px;
-            /* Espaçamento entre letras para elegância */
-        }
-
-        /* Estilo do subtítulo */
-        header h2 {
-            font-size: 1.2rem;
-            /* Subtítulo menor que o título */
-            margin: 0;
-            color: #7f8c8d;
-            /* Cor secundária para contraste */
-            font-style: italic;
-            /* Para um toque elegante */
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            /* Herdar a cor do texto */
-            transition: color 0.2s;
-            /* Suave ao passar o mouse */
-            padding: 0 1px 0px 0px;
-        }
-
-        a:hover {
-            color: #2980b9;
-            /* Azul para hover */
+        .header img {
+            height: 30px;
         }
 
         .container {
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        /* Estilo para itens */
-        .gift-item {
-            border-bottom: 1px solid #dcdcdc;
-            /* Bordas suaves */
-            padding: 10px 0;
+        .post {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .post-header {
             display: flex;
             align-items: center;
-            /* Alinhamento vertical */
-            justify-content: space-between;
-            /* Espaçamento entre elementos */
-            transition: background-color 0.2s;
-            /* Transição suave */
+            padding: 10px;
         }
 
-        .gift-item:hover {
-            background-color: #e7e7e7;
-            /* Cor para hover */
-        }
-
-        /* Estilo para a imagem */
-        .gift-image {
-            margin-right: 15px;
-            /* Espaço à direita da imagem */
-            width: 80px;
-            height: 80px;
-
-            border-radius: 50%;
-            /* Imagem circular */
-        }
-
-        /* Conteúdo ao lado da imagem */
-        .gift-content {
-            display: flex;
-            flex-direction: column;
-            /* Alinha verticalmente */
-        }
-
-        .gift-content h2 {
+        .post-header p {
             margin: 0;
-            /* Sem espaço adicional */
-            font-size: 1.5rem;
-            /* Tamanho do título */
-        }
-
-        .gift-content p {
-            margin-top: 5px;
-            /* Espaço entre o título e a descrição */
-            font-size: 1rem;
-            /* Tamanho da fonte para a descrição */
-        }
-
-        /* Botão "Presentear" para cada item */
-        .present-button {
-            padding: 5px 10px;
-            /* Espaçamento interno */
-            background-color: #2980b9;
-            /* Cor do botão */
-            color: white;
-            /* Cor do texto */
-            border-radius: 5px;
-            /* Bordas arredondadas */
-            text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
-            transition: background-color 0.3s;
+            color: #e0e0e0;
         }
 
-        .present-button:hover {
-            background-color: #3498db;
-            /* Cor de hover */
+        .post img {
+            width: 100%;
         }
 
-        /* Estilo para o modal */
-        .present-modal {
-            display: none;
-            /* Inicialmente invisível */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            /* Centraliza */
-            background-color: white;
-            /* Fundo do modal */
-            border: 1px solid #ddd;
-            padding: 35px;
-            z-index: 100;
-            /* Para sobrepor elementos */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            /* Sombra para o modal */
-            border-radius: 10px;
+        .post-content {
+            padding: 10px;
         }
 
-        .present-modal h3 {
-            margin-top: 0;
-            font-size: 1.5rem;
-            /* Tamanho do título */
+        .post-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #e0e0e0;
         }
 
-        .close-modal {
-            position: absolute;
-            /* Botão de fechar do modal */
-            top: 10px;
-            right: 10px;
-            background-color: transparente;
-            border: none;
-            color: #888;
-            font-size: 1.2rem;
-            cursor: pointer;
+        .post-content p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #b3b3b3;
         }
 
-        .close-modal:hover {
-            color: #555;
-            /* Cor para hover */
-        }
-
-        /* Estilo base para a classe .form-presentear */
-        .form-presentear {
-            background-color: #ffffff; /* Fundo branco para o formulário */
-            border: 1px solid #ddd; /* Borda suave */
-            border-radius: 10px; /* Bordas arredondadas para suavidade */
-            padding: 30px; /* Espaçamento interno */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
-            max-width: 400px; /* Limitar a largura para não ficar muito grande */
-            margin: 20px auto; /* Centralizar o formulário na página */
-            font-family: 'Helvetica Neue', Arial, sans-serif; /* Fonte limpa e moderna */
-        }
-
-        /* Estilo para os campos de entrada */
-        .form-presentear input {
-            width: 100%; /* Campos com largura total */
-            padding: 6px; /* Espaçamento interno */
-            margin: 0px;
+        .post-content a {
+            color: #539bf5;
+            text-decoration: none;
+            display: flex;
             align-items: center;
-            border: 1px solid #ccc; /* Borda do campo */
-            border-radius: 5px; /* Bordas arredondadas para suavidade */
-            transition: border 0.3s; /* Transição suave ao focar */
         }
 
-        .form-presentear input:focus {
-            border-color: #2980b9; /* Cor da borda ao focar */
+        .post-content a:hover {
+            text-decoration: underline;
         }
 
-        /* Estilo para o botão de envio */
-        .form-presentear button {
-            padding: 5px 20px; /* Espaçamento do botão */
-            margin: 20px 0 0 0;
-            background-color: #2980b9; /* Cor de fundo do botão */
-            color: white; /* Cor do texto do botão */
-            border: none; /* Sem borda */
-            border-radius: 5px; /* Bordas arredondadas */
-            font-size: 1rem; /* Tamanho do texto do botão */
-            font-weight: bold; /* Negrito para destaque */
-            cursor: pointer; /* Cursor de mão ao passar o mouse */
-            transition: background-color 0.3s; /* Transição suave */
-        }
-
-        .form-presentear button:hover {
-            background-color: #3498db; /* Cor ao passar o mouse */
+        .post-content img {
+            width: 20px;
+            margin-right: 5px;
         }
 
     </style>
-
-    <script>
-        // Função para abrir o modal
-        function openModal() {
-            document.getElementById("present-modal").style.display = "block";
-        }
-
-        // Função para fechar o modal
-        function closeModal() {
-            document.getElementById("present-modal").style.display = "none";
-        }
-
-        // Função para criar mensagem para o WhatsApp
-        function enviar_para_whatsapp() {
-            // Puxar os valores do formulário
-            var nome = document.getElementById("nome").value;
-            var tel = document.getElementById("telefone").value;
-            var presente = document.getElementById("presente").value;
-
-            // Criar a mensagem
-            var mensagem = `${nome}\n${tel}\n\nGostaria de te presentear com ${presente}!`;
-
-            // Codificar a mensagem para URL
-            var mensagem_codificada = encodeURIComponent(mensagem);
-
-            // Criar o link do WhatsApp com a mensagem
-            var url_whatsapp = `https://api.whatsapp.com/send?text=${mensagem_codificada}`;
-
-            // Abrir a URL do WhatsApp em uma nova aba
-            window.open(url_whatsapp, "_blank");
-        }
-    </script>
-
 </head>
-
 <body>
-    <header>
-        <h1>Presentes de Casamento<br>Paulo e Allana</h1>
-    </header>
-
     <div class="container">
-        <!-- Ordem dos presentes do mais caro para o mais barato -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://www.magazineluiza.com.br/sofa-omega-200m-assento-retratil-e-reclinavel-velosuede-areia-netsofas/p/ba07gek2h5/mo/sa03/">
-                <img class="gift-image" src="https://a-static.mlcdn.com.br/800x560/sofa-omega-200m-assento-retratil-e-reclinavel-velosuede-areia-netsofas/netsofas02/ome250102/b186431961f5112c07aaac7cb65061cf.jpeg" alt="Sofá">
-                <h2>Sofá</h2>
-                <p>Sofá Retrátil</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
+        <div class="post">
+            <div class="post-header">
+                <p>fogo_campeiro</p>
+            </div>
+            <img src="https://multcordf.com.br/wp-content/uploads/2021/02/MG_1217.jpg" alt="Post image">
+            <div class="post-content">
+                <h3>Local</h3>
+                <p>Fogo Campeiro</p>
+                <a href="https://www.google.com/maps/place/Fogo+Campeiro+Bras%C3%ADlia/@-15.8769535,-48.0149853,17z/data=!3m1!4b1!4m6!3m5!1s0x935a2d8462d60ea7:0x69ff68d2b6325933!8m2!3d-15.8769535!4d-48.0149853!16s%2Fg%2F11h6g4rm4n?entry=ttu">
+                    <img class="pin" src="https://img.icons8.com/glyph-neue/64/FFFFFF/place-marker.png" alt="local">
+                    Localização
+                </a>
+            </div>
         </div>
 
-        <!-- TV -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://www.magazineluiza.com.br/smart-tv-43-uhd-4k-led-samsung-43cu7700-wi-fi-bluetooth-alexa-3-hdmi/p/237016000/et/tv4k">
-                <img class="gift-image" src="https://a-static.mlcdn.com.br/800x560/smart-tv-43-uhd-4k-led-samsung-43cu7700-wi-fi-bluetooth-alexa-3-hdmi/magazineluiza/237016000/cfa76c088c18e26ce2f282766ea2fa7c.jpg" alt="TV">
-                <h2>TV</h2>
-                <p>Smart TV 43"</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Air fryer -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/airfryer">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Air fryer">
-                <h2>Air fryer</h2>
-                <p>Fritadeira sem Óleo</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Sanduicheira -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/sanduicheira">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Sanduicheira">
-                <h2>Sanduicheira</h2>
-                <p>Sanduicheira Elétrica</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Assadeiras -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/assadeiras">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Assadeiras">
-                <h2>Assadeiras</h2>
-                <p>Conjunto de Assadeiras</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Guarda-roupa -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/guarda-roupa">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Guarda-roupa">
-                <h2>Guarda-roupa</h2>
-                <p>Guarda-Roupa 6 Portas</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Mesa de Trabalho -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/mesa-de-trabalho">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Mesa de Trabalho">
-                <h2>Mesa de Trabalho</h2>
-                <p>Mesa com Gavetas</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Travesseiros -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/travesseiros">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Travesseiros">
-                <h2>Travesseiros</h2>
-                <p>Kit 2 Travesseiros</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Edredom/Cobertor -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/edredom">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Edredom">
-                <h2>Edredom/Cobertor</h2>
-                <p>Edredom de Algodão</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Jogos de cama -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/jogos-de-cama">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Jogos de Cama">
-                <h2>Jogos de Cama</h2>
-                <p>Conjunto com Cobre-Leito, Lençóis e Fronhas</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Cabides -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/cabides">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Cabides">
-                <h2>Cabides</h2>
-                <p>Pacote com 10 Cabides</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Cesto de Roupa -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/cesto-de-roupa">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Cesto de Roupa">
-                <h2>Cesto de Roupa</h2>
-                <p>Cesto com Tampa</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
-        </div>
-
-        <!-- Cortina -->
-        <div class="gift-item">
-            <a rel="noopener noreferrer" target="_blank" href="https://example.com/cortina">
-                <img class="gift-image" src="https://via.placeholder.com/80" alt="Cortina">
-                <h2>Cortina</h2>
-                <p>Cortina de Voil</p>
-            </a>
-            <a class="present-button" href="#" onclick="openModal()">Presentear</a>
+        <div class="post">
+            <div class="post-content">
+                <h3>Valor do Rodízio</h3>
+                <p>R$ 53,99</p>
+                <h3>Valor do Couvert</h3>
+                <p>R$ 6,99</p>
+            </div>
         </div>
     </div>
-
-    <!-- Modal para presentear -->
-    <div id="present-modal" class="present-modal">
-        <button class="close-modal" onclick="closeModal()">&times;</button> <!-- Botão para fechar o modal -->
-        <h3>Presentear</h3>
-        <!-- Formulário para coletar os dados -->
-        <form class="form-presentear" onsubmit="enviar_para_whatsapp(); return false;">
-            <!-- <label for="nome">Nome:</label> -->
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-
-           <!--  <label for="telefone">Telefone:</label> -->
-            <input type="text" id="telefone" name="telefone" placeholder="Digite seu Whatsapp" required>
-
-          <!-- <label for="presente">Presente:</label> -->
-            <input type="text" id="presente" name="presente" placeholder="Digite o seu presente" required>
-
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-
-    </div>
-
-    <script>
-
-        function puxar_nome_whatsapp() {
-            var nome = document.getElementById("nome").value; 
-            var tel = document.getElementById("whatsapp").value;
-            var presente = document.getElementById("presente").value;
-
-            var texto = "";
-            texto += `https://wa.me/5561991868565?text=${nome},%20${tel},%20gostaria%20de%20te%20presentear%20com%20${presente}`;
-        };
-
-    </script>
 </body>
-
 </html>
